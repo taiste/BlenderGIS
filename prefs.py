@@ -14,7 +14,8 @@ PKG = __package__
 #default predefinate crs
 PREDEF_CRS = {
 	'EPSG:4326' : 'WGS84 latlon',
-	'EPSG:3857' : 'Web Mercator'
+	'EPSG:3857' : 'Web Mercator',
+	'EPSG:3067' : 'ETRS / TM35FIN',
 }
 
 #default filter tags for OSM import
