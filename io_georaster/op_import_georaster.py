@@ -270,6 +270,13 @@ class IMPORT_GEORAST(Operator, ImportHelper):
 			description="Interpolate existing nodata values to get an usuable displacement texture",
 			default=False
 			)
+
+        #
+	zoomToSelect = BoolProperty(
+			name="Zoom to Selection",
+			description="After the new shape has been created, zoom to selection. Disable this for background operation",
+			default=True
+			)
 	#
 	step = IntProperty(name = "Step", default=1, description="Pixel step", min=1)
 
@@ -547,7 +554,7 @@ class IMPORT_GEORAST(Operator, ImportHelper):
 		#...if so, maybee we need to adjust 3d view settings to it
 		if newObjCreated:
 			bb = BBOX.fromObj(obj)
-			adjust3Dview(context, bb)
+			adjust3Dview(context, bb, self.zoomToSelect)
 
 		#Force view mode with textures
 		showTextures(context)
